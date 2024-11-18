@@ -11,7 +11,9 @@ Rails Form Helpers are one of the few times we recommend using an abstraction in
 
 * **Validation**: We can show inline errors and top-of-form errors in one line of code.
 
-* **Templating**: We can use the same form template for edit and update and Rails will choose the right method.
+* **Templating**: We can use the same form template for both edit and update actions.
+
+* **Populating**: We don't need to tell our form about existing record values as it can get these from our model.
 
 * **Nested Forms**: We can easily build has\_many forms without creating a mess of frontend code.
 
@@ -36,7 +38,6 @@ Form styling is powered by [Base Styles](/basestyles/intro). All we need to do i
     <%= f.button class: "ui-button --solid" do |button| %>
       Save  
       <%= inline_svg_tag("heroicons/check.svg") %>
-      <%= inline_svg_tag("misc/spinner.svg",class:"shown-while-loading") %>
     <% end %>
   <% end %>
   ```
@@ -55,8 +56,6 @@ Form styling is powered by [Base Styles](/basestyles/intro). All we need to do i
   end
   ```
 </CodeGroup>
-
-
 
 ### Loading Spinners
 
@@ -94,9 +93,9 @@ Wrap an input and label in a dive with base styles' `.ui-floating-input` class
 
 Use the `shared/form_errors` partial to display the errors for the form.
 
-```erb With Error {2}
+```erb With Errors {2}
 <%= form_with model: @book, url: book_path, html: {class:"ui-form"} do |f| %>
-  <%= render partial: "shared/form_errors", :locals => {:record => f.object} %>
+  <%= render partial: "shared/form_errors", locals: { record: f.object} %>
   <div class="ui-floating-input">
     <%= f.text_field :title %>
     <%= f.label :title, class:"--label" %>
@@ -108,3 +107,43 @@ Use the `shared/form_errors` partial to display the errors for the form.
   <% end %>
 <% end %>
 ```
+
+### Selects
+
+Implement clean selects with type to search, multi select and more, by wrapping a normal select in a `<better-select>` tag&#x20;
+
+```
+<%= form_with model: @book, url: book_path, html: {class:"ui-form"} do |f| %>
+  <better-select>
+    <%= f.select :category, options_for_select(Category.for_select) %>
+  </better-select>
+<% end %>
+```
+
+Read more about what's possible in the [Better Select Docs](/betterselect/intro).
+
+### Multi Step Forms
+
+- Read our [article](/h1rails/form_patterns) which covers multi step forms.
+- Check out our [Multi Step Form demo](https://demo.h1rails.com/demos)
+
+### Nested Forms
+
+Sometimes we want to build experiences where users can create or edit a list of options in a single form. Rails nested relationships handle this for us. Read [this article](/h1rails/form_patterns#nested-relationships) for full details
+
+```ruby
+class Order < ApplicationRecord
+  accepts_nested_attributes_for :items 
+end
+```
+
+```erb
+<%= form_for @order, url: order_path(@order.shortcode) do |form| %>
+  <%= form.fields_for :items do |item_fields| %>
+    <%= item_fields.text_field :first_name %> 
+  <% end %>
+<% end %>
+```
+
+### Examples
+
