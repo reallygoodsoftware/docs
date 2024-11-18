@@ -33,13 +33,7 @@ before_action :renders_in_modal, only: :info
 
 ## Slow Modals
 
-If your modal loads fast, this code is all you need.
-
-```erb
-<a href="<%= my_path >" >Show</a>
-```
-
-If a modal's going to take more than half a second to load, it's useful to show the loading skeleton when it's clicked.
+If your modal loads fast, the above code is all you need. If it's going to take more than half a second to load, it's useful to show the loading skeleton when it's clicked.
 
 ```erb
 <a :click="modalOpen=true" href="<%= my_path(modal:true) >" >Show</a>
