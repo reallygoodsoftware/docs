@@ -29,6 +29,9 @@
       "url": "basestyles"
     }
   ],
+  "background": {
+    "style": "windows"
+  },
   "navigation": [
     {
       "group": "Info",
