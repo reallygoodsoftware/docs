@@ -15,6 +15,9 @@
             "to": "#07C983"
         }
     },
+    "background": {
+      "style": "windows"
+    },
     "topbarCtaButton": {
         "name": "Really Good Software",
         "url": "https://reallygoodsoftware.net"
