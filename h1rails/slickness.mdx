@@ -1,6 +1,7 @@
 ---
 title: 'Making It Slick'
-icon: 'pen-nib'
+icon: 'pen'
+iconStyle: 'regular'
 ---
 
 Server rendered apps don't usually have the same tools as React etc. for making your app feel super smooth, so we need to be a little more intentional to get similar results.
@@ -78,7 +79,6 @@ Sometimes there are things that a page has to do, that take time that and are ou
 ### **Put your database in the same location as your application**
 
 This is something I regularly see people get tripped up on. If a page has to run 30 sql queries to display it, and it takes 30 miliseconds for that query to travel from where the app is hosted, to the database and back, that page is going to get very slow, very quickly. The same location simply means the same data center. If your app is hosted in Amazon's East Virginia data center, make sure your database is hosted there too.
-
 
 ## A note on Client Side vs Server Side validation
 
