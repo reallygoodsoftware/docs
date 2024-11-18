@@ -126,15 +126,13 @@ Read more about what's possible in the [Better Select Docs](/betterselect/intro)
 
 Sometimes we want to build experiences where users can create or edit a list of options in a single form. Rails form helpers can handle this with `accepts_nested_attributes_for` and `fields_for`.
 
-In our model
-```ruby
+```ruby In our model
 class Order < ApplicationRecord
   accepts_nested_attributes_for :items 
 end
 ```
 
-In our view
-```erb
+```erb In our view
 <%= form_for @order, url: order_path(@order.shortcode) do |form| %>
   <%= form.fields_for :items do |item_fields| %>
     <%= item_fields.text_field :first_name %> 
@@ -147,9 +145,5 @@ In our view
 
 ### Multi Step Forms
 
-- Read our [article](/h1rails/form_patterns) which covers multi step forms.
-- Check out our [Multi Step Form demo](https://demo.h1rails.com/demos)
-
-
-### Examples
+- There are several considerations when building Multi Step Forms, which we covered in our article: [Multi Step & Nested Forms](/h1rails/form_patterns) 
 
