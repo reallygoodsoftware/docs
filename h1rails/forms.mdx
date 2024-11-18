@@ -3,21 +3,67 @@ title: "Forms"
 icon: "pager"
 ---
 
-### Rails Form Helpers&#x20;
+### Rails Form Helpers
 
-Rails Form Helpers are one of the few times we recommend writing using an abstraction instead of vanilla html `<forms>`
+Rails Form Helpers are one of the few times we recommend using an abstraction instead of just vanilla html `<form>` elements. This is because they provide substantial utility:
 
-### Basic Form
+* **Security**: Every form includes and validates a CSRF protection.
 
-Use the `form_with` form helper
+* **Validation**: We can show inline errors and top-of-form errors in one line of code.
 
-```erb form.html.erb
-<%= form_with model: @user, url: user_path(@user.id), html: {class:"ui-form"} do |f| %>
-  <%= f.text_field :username, placeholder: "Username" %>
-  <%= f.button class: "ui-button --solid" do |button| %>
-    Save  
-    <%= inline_svg_tag("heroicons/check.svg") %>
-    <%= inline_svg_tag("misc/spinner.svg",class:"shown-while-loading") %>
+* **Templating**: We can use the same form template for edit and update and Rails will choose the right method.
+
+* **Nested Forms**: We can easily build has\_many forms without creating a mess of frontend code.
+
+Read More on [Rails Form Helpers](https://guides.rubyonrails.org/form_helpers.html#working-with-basic-forms) on the official Rails Site.
+
+### Form Styling
+
+Form styling is powered by [Base Styles](/basestyles/intro). All we need to do is add a class of `.ui-form` to our form and all our form inputs will be styled for us. We can remove these default styles on a per field basis if we prefer - see instructions below.&#x20;
+
+### Loading States
+
+* Form loading states are handled by htmx - all we have to do is to is add a loading spinner which is hidden by default. You can read more in our article on [HTMX Indicators](/h1rails/htmx_indicators).
+
+
+
+# Code Examples
+
+### Simple Form
+
+<CodeGroup>
+  ```ruby routes.rb
+  match "/books/:id" => "books#edit", via: [:get,:patch], as: "book"
+  ```
+
+  ```ruby books_controller.rb
+  def edit
+    if request.post?
+      if @book.update(book_params)
+        redirect_to root_path
+      end
+    end
+  end
+  ```
+
+  ```erb edit.html.erb
+  <%= form_with model: @book, url: book_path, html: {class:"ui-form"} do |f| %>
+    <%= f.text_field :title, placeholder: "Title" %>
+    <%= f.button class: "ui-button --solid" do |button| %>
+      Save  
+      <%= inline_svg_tag("heroicons/check.svg") %>
+      <%= inline_svg_tag("misc/spinner.svg",class:"shown-while-loading") %>
+    <% end %>
   <% end %>
-<% end %>
-```
+  ```
+
+  ```
+  console.log("Hello World");
+  ```
+</CodeGroup>
+
+
+
+
+
+### Remove styling
