@@ -21,9 +21,13 @@
   },
   "tabs": [
     {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
+      "name": "H1 Rails",
+      "url": "h1rails"
+    },
+    {
+      "name": "Base Styles",
+      "url": "basestyles"
+    },
   ],
   "anchors": [
     {
@@ -42,10 +46,10 @@
     {
       "group": "Elements",
       "pages": [
-        "h1rails_icons",
-        "h1rails_toasts",
-        "h1rails_modals",
-        "h1rails_dropdowns"
+        "h1rails/icons",
+        "h1rails/toasts",
+        "h1rails/modals",
+        "h1rails/dropdowns"
       ]
     }
   ],
