@@ -112,7 +112,7 @@ Use the `shared/form_errors` partial to display the errors for the form.
 
 Implement clean selects with type to search, multi select and more, by wrapping a normal select in a `<better-select>` tag&#x20;
 
-```
+```erb
 <%= form_with model: @book, url: book_path, html: {class:"ui-form"} do |f| %>
   <better-select>
     <%= f.select :category, options_for_select(Category.for_select) %>
