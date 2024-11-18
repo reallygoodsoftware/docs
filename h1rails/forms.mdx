@@ -1,4 +1,23 @@
 ---
-title: 'Forms'
-icon: 'pager'
+title: "Forms"
+icon: "pager"
 ---
+
+### Rails Form Helpers&#x20;
+
+Rails Form Helpers are one of the few times we recommend writing using an abstraction instead of vanilla html `<forms>`
+
+### Basic Form
+
+Use the `form_with` form helper
+
+```erb form.html.erb
+<%= form_with model: @user, url: user_path(@user.id), html: {class:"ui-form"} do |f| %>
+  <%= f.text_field :username, placeholder: "Username" %>
+  <%= f.button class: "ui-button --solid" do |button| %>
+    Save  
+    <%= inline_svg_tag("heroicons/check.svg") %>
+    <%= inline_svg_tag("misc/spinner.svg",class:"shown-while-loading") %>
+  <% end %>
+<% end %>
+```
