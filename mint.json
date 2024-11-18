@@ -49,7 +49,16 @@
         "h1rails/icons",
         "h1rails/toasts",
         "h1rails/modals",
-        "h1rails/dropdowns"
+        "h1rails/forms"
+      ]
+    },
+    {
+      "group": "Articles"
+      "pages": [
+        "h1rails/slickness",
+        "h1rails/form_patterns"
+        "h1rails/htmx",
+        "h1rails/htmx_indicators"
       ]
     }
   ],
