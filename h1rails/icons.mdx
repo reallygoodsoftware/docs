@@ -15,13 +15,15 @@ title: 'Icons'
 * To render an icon, use the following snippet and swap out the name of the file and the classes as necessary.
 
 ```erb
-<%= inline_svg_tag("/heroicons/icon-chevron-right.svg" %>
+<%= inline_svg_tag("/heroicons/icon-chevron-right.svg") %>
 ```
 
-### Add a color class
+### Add Classes
+
+Most commonly used to change the size or color.
 
 ```erb
-<%= inline_svg_tag("/heroicons/icon-chevron-right.svg" %>
+<%= inline_svg_tag("/heroicons/icon-chevron-right.svg", class: "w-5 text-indigo-500") %>
 ```
 
 ### FAQ
