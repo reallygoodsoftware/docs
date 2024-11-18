@@ -1,8 +1,10 @@
 ---
 title: 'HTMX Loading Patterns'
+icon: 'pen'
+iconStyle: 'regular'
 ---
 
-HTMX has an in-built way to display loading content the moment a user submits a request. The term they use for this is `hx-indicator`. You can read more about it [here](https://htmx.org/attributes/hx-indicator/). 
+HTMX has an in-built way to display loading content the moment a user submits a request. The term they use for this is `hx-indicator`. You can read more about it [here](https://htmx.org/attributes/hx-indicator/).
 
 There are several scenarios where a user can trigger a request: Clicking a Link, Clicking a Button, or Submitting a Form.
 
@@ -10,9 +12,11 @@ There are several scenarios where a user can trigger a request: Clicking a Link,
 
 The most common way to handle this is to replace your main content container with something that indicates content is loading.
 
-- Add two divs inside your htmx target div (in this case `#main-content`). 
-- Wrap your main content in a `.hidden-while-loading` div, and...
-- Add your loading content in a `.shown-while-loading` div.
+* Add two divs inside your htmx target div (in this case `#main-content`).
+
+* Wrap your main content in a `.hidden-while-loading` div, and...
+
+* Add your loading content in a `.shown-while-loading` div.
 
 ```html
 <div id="main-content"> 
@@ -30,7 +34,7 @@ The most common way to handle this is to replace your main content container wit
 </div>
 ```
 
-Make sure your htmx request specifies an `hx-indicator` 
+Make sure your htmx request specifies an `hx-indicator`
 
 ```html
 <body hx-boost="true" hx-target="#main-content" hx-indicator="#main-content">
@@ -42,9 +46,11 @@ That's it. Provided you've loaded the CSS below and the Shimmer CSS, and added y
 
 In scenarios where the content of the whole page won't change on click, a full replacement of the main div with a shimmer is overkill. In this case a cleaner UX is to simply show the user a loading spinner inside the button they clicked. This is as simple as
 
-- Add `hx-indicator="this"` to the button itself. This will override the `hx-indicator` on any outer elements. 
-- Add a loading spinner inside the link or button, wrapped in a `.shown-while-loading` span. 
-- If there's already another icon on the button, it will look bad alongside the loading spinner. So hide it by wrapping it in `.hidden-while-loading`
+* Add `hx-indicator="this"` to the button itself. This will override the `hx-indicator` on any outer elements.
+
+* Add a loading spinner inside the link or button, wrapped in a `.shown-while-loading` span.
+
+* If there's already another icon on the button, it will look bad alongside the loading spinner. So hide it by wrapping it in `.hidden-while-loading`
 
 ```html
 <a hx-indicator="this" href="/foo" class="flex items-center">
@@ -62,14 +68,17 @@ In scenarios where the content of the whole page won't change on click, a full r
 
 When a user submits a form the cleanest UX we've found is to...
 
-- Show a loading spinner on the submit button to indicate the form is saving.
-- Communicate that the form is in an interim state and should not be modified.
+* Show a loading spinner on the submit button to indicate the form is saving.
+
+* Communicate that the form is in an interim state and should not be modified.
 
 This can be achieved by doing the following:
 
-- Add `hx-indicator="this"` to the form.
-- Add the `.faded-while-loading` class to the form.
-- Add loading spinner icons inside the submit button.
+* Add `hx-indicator="this"` to the form.
+
+* Add the `.faded-while-loading` class to the form.
+
+* Add loading spinner icons inside the submit button.
 
 ```html
 <form hx-indicator="this" class="faded-while-loading">
@@ -84,6 +93,7 @@ This can be achieved by doing the following:
   </button>
 </form>
 ```
+
 ## The SVG
 
 ```html
@@ -101,3 +111,4 @@ This can be achieved by doing the following:
 .htmx-request .hidden-while-loading { display: none; }
 .shown-while-loading { display: none; }
 .htmx-request.faded-while-loading, .htmx-request .faded-while-loading  { opacity: 0.6 }
+```

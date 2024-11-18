@@ -1,6 +1,7 @@
 ---
 title: 'HTMX Loading Patterns'
-icon: 'pen-nib'
+icon: 'pen'
+iconStyle: 'regular'
 ---
 
 HTMX has an in-built way to display loading content the moment a user submits a request. The term they use for this is `hx-indicator`. You can read more about it [here](https://htmx.org/attributes/hx-indicator/).
