@@ -4,7 +4,7 @@ icon: 'pen'
 iconStyle: 'regular'
 ---
 
-A common requirement with an html first app is to retain the url state as a user clicks around. For example, if a page has a set of scopes and a set of filters, when you're building the link to a scope, you'll want to make sure it also includes the currently active filter. 
+A common requirement with an html first app is to retain the url state as a user clicks around. For example, if a page has a set of scopes and a set of filters, when you're building the link to a scope, you'll want to make sure it also includes the currently active filter.
 
 ### Generate a link with the current URL parameters
 
@@ -35,7 +35,9 @@ A common requirement with an html first app is to retain the url state as a user
 
 ## Source
 
-```
+These methods are a thin layer on top of Rails' own methods - `url_for` and `request.query_parameters`.
+
+```ruby
 # /app/helpers/application_helper
 def current_url_with(params)
   url_for(request.query_parameters.merge(params))
