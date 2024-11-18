@@ -73,10 +73,9 @@ Add an element with the `.shown-while-loading` class - it will be automatically 
 <% end %>
 ```
 
-
 ### Floating Field Labels
 
-Use base styles `.ui-floating-input` class
+Wrap an input and label in a dive with base styles` `.ui-floating-input` class
 
 ```erb Floating Inputs {2-5}
 <%= form_with model: @book, url: book_path, html: {class:"ui-form"} do |f| %>
@@ -95,7 +94,7 @@ Use base styles `.ui-floating-input` class
 
 Use the `shared/form_errors` partial to display the errors for the form.
 
-```
+```erb With Error {2}
 <%= form_with model: @book, url: book_path, html: {class:"ui-form"} do |f| %>
   <%= render partial: "shared/form_errors", :locals => {:record => f.object} %>
   <div class="ui-floating-input">
