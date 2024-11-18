@@ -122,21 +122,18 @@ Implement clean selects with type to search, multi select and more, by wrapping 
 
 Read more about what's possible in the [Better Select Docs](/betterselect/intro).
 
-### Multi Step Forms
+### Forms with Has Many relationships
 
-- Read our [article](/h1rails/form_patterns) which covers multi step forms.
-- Check out our [Multi Step Form demo](https://demo.h1rails.com/demos)
+Sometimes we want to build experiences where users can create or edit a list of options in a single form. Rails form helpers can handle this with `accepts_nested_attributes_for` and `fields_for`.
 
-### Nested Forms
-
-Sometimes we want to build experiences where users can create or edit a list of options in a single form. Rails nested relationships handle this for us. Read [this article](/h1rails/form_patterns#nested-relationships) for full details
-
+In our model
 ```ruby
 class Order < ApplicationRecord
   accepts_nested_attributes_for :items 
 end
 ```
 
+In our view
 ```erb
 <%= form_for @order, url: order_path(@order.shortcode) do |form| %>
   <%= form.fields_for :items do |item_fields| %>
@@ -144,6 +141,15 @@ end
   <% end %>
 <% end %>
 ```
+
+- Read [the full article](/h1rails/form_patterns#nested-relationships) which goes into more detail on nested forms.
+
+
+### Multi Step Forms
+
+- Read our [article](/h1rails/form_patterns) which covers multi step forms.
+- Check out our [Multi Step Form demo](https://demo.h1rails.com/demos)
+
 
 ### Examples
 
