@@ -55,10 +55,10 @@
     {
       "group": "Elements",
       "pages": [
+        "h1rails/forms",
         "h1rails/icons",
         "h1rails/toasts",
-        "h1rails/modals",
-        "h1rails/forms"
+        "h1rails/modals"
       ]
     },
     {
