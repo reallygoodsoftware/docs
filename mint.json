@@ -36,7 +36,7 @@
     {
       "group": "Info",
       "pages": [
-        "introduction",
+        "introduction"
       ]
     },
     {
@@ -46,20 +46,6 @@
         "h1rails_toasts",
         "h1rails_modals",
         "h1rails_dropdowns"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
       ]
     }
   ],
