@@ -27,7 +27,7 @@ Form styling is powered by [Base Styles](/basestyles/intro). All we need to do i
 
 # Code Examples
 
-### Simple Form
+### A Basic Form
 
 <CodeGroup>
   ```erb edit.html.erb
@@ -56,6 +56,24 @@ Form styling is powered by [Base Styles](/basestyles/intro). All we need to do i
   ```
 </CodeGroup>
 
+
+
+### Loading Spinners
+
+Add an element with the `.shown-while-loading` class - it will be automatically shown when the form is submitted.
+
+```erb Loading Spinner {6}
+<%= form_with model: @book, url: book_path, html: {class:"ui-form"} do |f| %>
+  <%= f.text_field :title, placeholder: "Title" %>
+  <%= f.button class: "ui-button --solid" do |button| %>
+    Save  
+    <%= inline_svg_tag("heroicons/check.svg") %>
+    <%= inline_svg_tag("misc/spinner.svg",class:"shown-while-loading") %>
+  <% end %>
+<% end %>
+```
+
+
 ### Floating Field Labels
 
 Use base styles `.ui-floating-input` class
@@ -69,7 +87,6 @@ Use base styles `.ui-floating-input` class
   <%= f.button class: "ui-button --solid" do |button| %>
     Save  
     <%= inline_svg_tag("heroicons/check.svg") %>
-    <%= inline_svg_tag("misc/spinner.svg",class:"shown-while-loading") %>
   <% end %>
 <% end %>
 ```
