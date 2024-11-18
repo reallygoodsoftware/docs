@@ -32,6 +32,7 @@
   "background": {
     "style": "windows"
   },
+  "layout": "sidenav",
   "navigation": [
     {
       "group": "Info",
