@@ -1,0 +1,98 @@
+---
+title: 'Making It Slick'
+---
+
+# Making It Slick
+
+Server rendered apps don't usually have the same goodies that React and similar frameworks bring by default for making your app feel super smooth, so we need to be a little more intentional to get similar results. 
+
+### Make Links & Forms Asynchronous
+
+Use htmx to override the default behaviour of the browser when a link is clicked or a form is submitted. This is enabled by default in H1 Rails - for times when you want to do more custom stuff, see the htmx cheat sheet here.
+
+
+### Use CSS animations on clickable elements
+
+This is a pretty broad directive - generally it's best to consult a designer on this stuff. But clickable elements that don't change when moused over, feel stiff and unresponsive.  
+
+
+#### Show loading text and spinners on buttons and forms
+
+HTMX gives us the primitives to handle this smoothly. Whenever a link is clicked, htmx will add the `.htmx-request` class to the element. This allows us to target elements inside it with CSS. We can use the `.htmx-indicator` class to show hidden elements when the link is clicked, and the `.htmx-collapse` class to hide elements when the link is clicked.
+
+```erb
+<a href="/delayed-response" class="no-style inline-flex items-center justify-center bg-alpha px-4 py-1 font-semibold text-white transition-all rounded-full">
+  <div class="htmx-collapse">
+    Start
+  </div>
+  <div class="htmx-indicator">
+    Loading...
+  </div>
+  <svg viewBox="0 0 50 50" class="htmx-indicator">
+    <path fill="white" d="M43.935,25.146c0-10.355-8.396-18.75-18.75-18.75c-10.355,0-18.75,8.396-18.75,18.75h4.068     c0-8.115,6.567-14.682,14.682-14.682s14.682,6.567,14.682,14.682H43.935z">
+      <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="1s" repeatCount="indefinite"></animateTransform>
+    </path>
+  </svg>
+</a>
+```
+
+
+**A note on form field validation**
+
+In the spirit of giving users immediate feedback, a logical conclusion would be to apply the same approach to form field validation too (show users validation errors before sending the request to the server). Given that there are dozens of field types and hundreds of potential error states, applying the exact same validations on both the server and client is (in my experience) too complex to warrant the benefit. So to avoid confusion, our recommended approach is to do all validation on the server and have the user wait until the response is returned to see what those errors are. 
+
+# Make It Fast
+
+It's really important that the app responds quickly. Some things, like the user's connection speed, are out of our control. But we can usually tune the app to respond in a time that feels almost instant on good connections. As a general rule, **pages should load in 300 miliseconds or less** on a good connection.
+
+**Remove N+1 Queries**
+
+- Set Rails [verbose query logging](https://guides.rubyonrails.org/debugging_rails_applications.html#verbose-query-logs) to `true` - this will now add the exact line of code that called the database, to your logs.
+
+``` ruby
+# environments/development.rb
+Rails.application.configure do
+  config.active_record.verbose_query_logs = true
+end
+```
+
+- Add the [Bullet](https://github.com/flyerhzm/bullet) gem 
+
+```ruby
+# Gemfile
+gem 'bullet', group: 'development'
+```
+
+```ruby
+# environments/development.rb
+config.after_initialize do
+  Bullet.enable = true
+  Bullet.rails_logger = true
+  Bullet.alert = true # This can be toggled when doing debugging but is probably best left turned off
+end
+```
+
+- Use `.includes` when fetching data in the controller, to avoid triggering an n+1 in your view.
+
+
+**Load slow sections asynchronously**
+
+Sometimes there are things that a page has to do, that take time that and are outside of our control. Htmx helps again here, by letting us load the page and then fetch a frame of data asynchronously after it's loaded.
+
+```ruby
+# config/routes.rb
+ get "/my-charts" => "charts#widget", :as => :chart_widget
+```
+
+```erb
+<div hx-get="<%= chart_widget_path %>" hx-trigger="load" hx-target="this">
+  Loading...
+</div>
+```
+
+
+**Put your database in the same location as your application**
+
+This is something I regularly see people get tripped up on. If a page has to run 30 sql queries to display it, and it takes 30 miliseconds for that query to travel from where the app is hosted, to the database and back, that page is going to get very slow, very quickly. The same location simply means the same data center. If your app is hosted in Amazon's East Virginia data center, make sure your database is hosted there too.
+
+
