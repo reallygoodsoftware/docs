@@ -27,6 +27,18 @@
     {
       "name": "Base Styles",
       "url": "basestyles"
+    },
+    {
+      "name": "Better Select",
+      "url": "betterselect"
+    },
+    {
+      "name": "Tailwind Lite",
+      "url": "tailwindlite"
+    },
+    {
+      "name": "Mini JS",
+      "url": "minijs"
     }
   ],
   "background": {
