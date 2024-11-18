@@ -1,69 +1,69 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "Really Good Software Docs",
-  "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
-  },
-  "favicon": "/favicon.svg",
-  "colors": {
-    "primary": "#EC4D25",
-    "light": "#07C983",
-    "dark": "#EC4D25",
-    "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
-    }
-  },
-  "topbarCtaButton": {
-    "name": "Really Good Software",
-    "url": "https://reallygoodsoftware.net"
-  },
-  "tabs": [
-    {
-      "name": "H1 Rails",
-      "url": "h1rails"
+    "$schema": "https://mintlify.com/schema.json",
+    "name": "Really Good Software Docs",
+    "logo": {
+        "dark": "/logo/dark.svg",
+        "light": "/logo/light.svg"
     },
-    {
-      "name": "Base Styles",
-      "url": "basestyles"
-    }
-  ],
-  "anchors": [
-    {
-      "name": "Demos",
-      "icon": "book-open-cover",
-      "url": "https://demo.h1rails.com/demos"
-    }
-  ],
-  "navigation": [
-    {
-      "group": "Info",
-      "pages": [
-        "h1rails/intro"
-      ]
+    "favicon": "/favicon.svg",
+    "colors": {
+        "primary": "#EC4D25",
+        "light": "#07C983",
+        "dark": "#EC4D25",
+        "anchors": {
+            "from": "#0D9373",
+            "to": "#07C983"
+        }
     },
-    {
-      "group": "Elements",
-      "pages": [
-        "h1rails/icons",
-        "h1rails/toasts",
-        "h1rails/modals",
-        "h1rails/forms"
-      ]
+    "topbarCtaButton": {
+        "name": "Really Good Software",
+        "url": "https://reallygoodsoftware.net"
     },
-    {
-      "group": "Articles"
-      "pages": [
-        "h1rails/slickness",
-        "h1rails/form_patterns"
-        "h1rails/htmx",
-        "h1rails/htmx_indicators"
-      ]
+    "tabs": [
+        {
+            "name": "H1 Rails",
+            "url": "h1rails"
+        },
+        {
+            "name": "Base Styles",
+            "url": "basestyles"
+        }
+    ],
+    "anchors": [
+        {
+            "name": "Demos",
+            "icon": "book-open-cover",
+            "url": "https://demo.h1rails.com/demos"
+        }
+    ],
+    "navigation": [
+        {
+            "group": "Info",
+            "pages": [
+                "h1rails/intro"
+            ]
+        },
+        {
+            "group": "Elements",
+            "pages": [
+                "h1rails/icons",
+                "h1rails/toasts",
+                "h1rails/modals",
+                "h1rails/forms"
+            ]
+        },
+        {
+            "group": "Articles",
+            "pages": [
+                "h1rails/slickness",
+                "h1rails/form_patterns",
+                "h1rails/htmx",
+                "h1rails/htmx_indicators"
+            ]
+        }
+    ],
+    "footerSocials": {
+        "x": "https://x.com/rlygoodsoftware",
+        "github": "https://github.com/reallygoodsoftware"
     }
-  ],
-  "footerSocials": {
-    "x": "https://x.com/rlygoodsoftware",
-    "github": "https://github.com/reallygoodsoftware"
-  }
 }
