@@ -25,13 +25,22 @@ Form styling is powered by [Base Styles](/basestyles/intro). All we need to do i
 
 * Form loading states are handled by htmx - all we have to do is to is add a loading spinner which is hidden by default. You can read more in our article on [HTMX Indicators](/h1rails/htmx_indicators).
 
-
-
 # Code Examples
 
 ### Simple Form
 
 <CodeGroup>
+  ```erb edit.html.erb
+  <%= form_with model: @book, url: book_path, html: {class:"ui-form"} do |f| %>
+    <%= f.text_field :title, placeholder: "Title" %>
+    <%= f.button class: "ui-button --solid" do |button| %>
+      Save  
+      <%= inline_svg_tag("heroicons/check.svg") %>
+      <%= inline_svg_tag("misc/spinner.svg",class:"shown-while-loading") %>
+    <% end %>
+  <% end %>
+  ```
+
   ```ruby routes.rb
   match "/books/:id" => "books#edit", via: [:get,:patch], as: "book"
   ```
@@ -45,25 +54,41 @@ Form styling is powered by [Base Styles](/basestyles/intro). All we need to do i
     end
   end
   ```
-
-  ```erb edit.html.erb
-  <%= form_with model: @book, url: book_path, html: {class:"ui-form"} do |f| %>
-    <%= f.text_field :title, placeholder: "Title" %>
-    <%= f.button class: "ui-button --solid" do |button| %>
-      Save  
-      <%= inline_svg_tag("heroicons/check.svg") %>
-      <%= inline_svg_tag("misc/spinner.svg",class:"shown-while-loading") %>
-    <% end %>
-  <% end %>
-  ```
-
-  ```
-  console.log("Hello World");
-  ```
 </CodeGroup>
 
+### Floating Field Labels
 
+Use base styles `.ui-floating-input` class
 
+```erb Floating Inputs {2-5}
+<%= form_with model: @book, url: book_path, html: {class:"ui-form"} do |f| %>
+  <div class="ui-floating-input">
+    <%= f.text_field :title %>
+    <%= f.label :title, class:"--label" %>
+  </div>
+  <%= f.button class: "ui-button --solid" do |button| %>
+    Save  
+    <%= inline_svg_tag("heroicons/check.svg") %>
+    <%= inline_svg_tag("misc/spinner.svg",class:"shown-while-loading") %>
+  <% end %>
+<% end %>
+```
 
+### Show Errors
 
-### Remove styling
+Use the `shared/form_errors` partial to display the errors for the form.
+
+```
+<%= form_with model: @book, url: book_path, html: {class:"ui-form"} do |f| %>
+  <%= render partial: "shared/form_errors", :locals => {:record => f.object} %>
+  <div class="ui-floating-input">
+    <%= f.text_field :title %>
+    <%= f.label :title, class:"--label" %>
+  </div>
+  <%= f.button class: "ui-button --solid" do |button| %>
+    Save  
+    <%= inline_svg_tag("heroicons/check.svg") %>
+    <%= inline_svg_tag("misc/spinner.svg",class:"shown-while-loading") %>
+  <% end %>
+<% end %>
+```
