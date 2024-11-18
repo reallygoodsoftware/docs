@@ -3,35 +3,31 @@ title: 'Making It Slick'
 icon: 'pen-nib'
 ---
 
-Server rendered apps don't usually have the same goodies that React and similar frameworks bring by default for making your app feel super smooth, so we need to be a little more intentional to get similar results.
+Server rendered apps don't usually have the same tools as React etc. for making your app feel super smooth, so we need to be a little more intentional to get similar results.
+
+This is a list of assorted things that we do to make our server rendered apps feel as slick to use as those in the javascript ecosystem.
 
 ### Make Links & Forms Asynchronous
 
-Use htmx to override the default behaviour of the browser when a link is clicked or a form is submitted. This is enabled by default in H1 Rails - for times when you want to do more custom stuff, see the htmx cheat sheet here.
+Submitting a form or clicking on a link shouldn't trigger a full page reload. H1 Rails enables this in a single place using [hx-boost](https://htmx.org/attributes/hx-boost/), which means you can just build normal links and forms, and this will work automatically.
+
+* Read More about [How We Use Htmx.](/h1rails/htmx)
 
 ### Use CSS animations on clickable elements
 
 This is a pretty broad directive - generally it's best to consult a designer on this stuff. But clickable elements that don't change when moused over, feel stiff and unresponsive.
 
-#### Show loading text and spinners on buttons and forms
+### Show loading text and spinners on buttons and forms
 
-HTMX gives us the primitives to handle this smoothly. Whenever a link is clicked, htmx will add the `.htmx-request` class to the element. This allows us to target elements inside it with CSS. We can use the `.htmx-indicator` class to show hidden elements when the link is clicked, and the `.htmx-collapse` class to hide elements when the link is clicked.
+HTMX makes it very easy to show an element while a form, button, or link is loading
 
-```erb
-<a href="/delayed-response" class="no-style inline-flex items-center justify-center bg-alpha px-4 py-1 font-semibold text-white transition-all rounded-full">
-  <div class="htmx-collapse">
-    Start
-  </div>
-  <div class="htmx-indicator">
-    Loading...
-  </div>
-  <svg viewBox="0 0 50 50" class="htmx-indicator">
-    <path fill="white" d="M43.935,25.146c0-10.355-8.396-18.75-18.75-18.75c-10.355,0-18.75,8.396-18.75,18.75h4.068     c0-8.115,6.567-14.682,14.682-14.682s14.682,6.567,14.682,14.682H43.935z">
-      <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="1s" repeatCount="indefinite"></animateTransform>
-    </path>
-  </svg>
-</a>
 ```
+<%= inline_svg_tag("misc/spinner.svg",class:"shown-while-loading") %>
+```
+
+* Read More about [HTMX Loading Patterns](/h1rails/htmx_indicators)
+
+
 
 **A note on form field validation**
 
