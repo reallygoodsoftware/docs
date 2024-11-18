@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Base Styles",
+  "name": "Really Good Software Docs",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
@@ -34,22 +34,18 @@
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Info",
       "pages": [
         "introduction",
-        "quickstart",
-        "development"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Elements",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "h1rails_icons",
+        "h1rails_toasts",
+        "h1rails_modals",
+        "h1rails_dropdowns"
       ]
     },
     {
@@ -68,8 +64,7 @@
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://linkedin.com/company/mintlify"
+    "x": "https://x.com/rlygoodsoftware",
+    "github": "https://github.com/reallygoodsoftware"
   }
 }
