@@ -1,6 +1,6 @@
 ---
 title: 'Working With HTMX'
-icon: 'pen'
+icon: 'dash'
 iconStyle: 'regular'
 ---
 

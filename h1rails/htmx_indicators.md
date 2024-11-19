@@ -1,6 +1,6 @@
 ---
 title: 'HTMX Loading Patterns'
-icon: 'pen'
+icon: 'dash'
 iconStyle: 'regular'
 ---
 
