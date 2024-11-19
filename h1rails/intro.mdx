@@ -20,14 +20,22 @@ H1 Rails is the quickest way to make beautiful web apps with minimal complexity.
   <Tab title="Icons">
     * Pre loaded icons from [Heroicons](https://heroicons.com) and [Tabler Icons](https://tabler.io/icons)
 
-    * Add classes to style icons using [inline\_svg](https://github.com/jamesmartin/inline_svg).
+    <CodeGroup>
+      ```erb Simple Icon
+      <%= inline_svg_tag("heroicons/check.svg") %>
+      ```
 
-    [Read More about Icons →](/h1rails/icons)
+      ```erb With Color
+      <%= inline_svg_tag("heroicons/check.svg",class:"text-green-200") %>
+      ```
+    </CodeGroup>
   </Tab>
 
-  <Tab title="Modals" />
+  <Tab title="Modals & Toasts">
+    * Open any route in a modal with one line of code.
 
-  <Tab title="Toasts" />
+    * Send toasts from the backend in one line of code.
+  </Tab>
 </Tabs>
 
 ## FAQs
