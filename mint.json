@@ -50,6 +50,8 @@
       "group": "Info",
       "pages": [
         "h1rails/intro"
+        "h1rails/github",
+        "h1rails/demos"
       ]
     },
     {
@@ -69,13 +71,6 @@
         "h1rails/htmx",
         "h1rails/htmx_indicators",
         "h1rails/urls"
-      ]
-    },
-    {
-      "group": "Links",
-      "pages": [
-        "h1rails/github",
-        "h1rails/demos"
       ]
     },
     {
