@@ -14,11 +14,11 @@ H1 Rails is the quickest way to make beautiful web apps with minimal complexity.
 
     * Support for multi-selects tag select, type to search. [Read More](/h1rails/selects)
 
-    * Code examples for commonly used patterns e.g nested relationships. [Read More](h1rails/form_patterns)
+    * Code examples for commonly used patterns e.g nested relationships. [Read More](/h1rails/form_patterns)
   </Tab>
 
   <Tab title="Icons">
-    * Pre loaded icons from [Heroicons](https://heroicons.com) and [Tabler Icons](https://tabler.io/icons)
+    * Pre loaded icons from [Heroicons](https://heroicons.com) and [Tabler Icons](https://tabler.io/icons), powered by [inline_svg](https://github.com/jamesmartin/inline_svg).
 
     <CodeGroup>
       ```erb Simple Icon
@@ -29,12 +29,16 @@ H1 Rails is the quickest way to make beautiful web apps with minimal complexity.
       <%= inline_svg_tag("heroicons/check.svg",class:"text-green-200") %>
       ```
     </CodeGroup>
+    [More on Icons →](/h1rails/icons)
   </Tab>
 
-  <Tab title="Modals & Toasts">
-    * Open any route in a modal with one line of code.
-
-    * Send toasts from the backend in one line of code.
+  <Tab title="Modals">
+    * Open any route in a modal
+    ```rb Controller {2}
+    class MyController
+      before_action :renders_in_modal, only: [:edit]
+    end
+    ```
   </Tab>
 </Tabs>
 
