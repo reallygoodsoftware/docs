@@ -76,7 +76,7 @@
         {
             "group": "Info",
             "pages": [
-                "basestyles/index",
+                "basestyles/intro",
                 "basestyles/design-goals",
                 "basestyles/customization"
             ]
