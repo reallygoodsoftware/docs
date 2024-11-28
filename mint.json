@@ -88,7 +88,7 @@
             ]
         },
         {
-            "group": "Elements"
+            "group": "Elements",
             "pages": [
                 "/basestyles/box",
                 "/basestyles/titlepair",
