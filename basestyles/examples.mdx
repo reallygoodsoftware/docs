@@ -1,3 +1,8 @@
+---
+custom-class: "ui-styled-text"
+title: "Examples"
+---
+
 ## .ui-button
 
 <div class="ui-ox my-6">
@@ -65,50 +70,63 @@
   </div>
 </div>
 
-
 ## .ui-form
 
 <form id="form1" class="ui-box my-6 ui-form" action="/docs">
-  <div class="ui-tuple flex flex-col gap-y-1">  
+  <div class="ui-tuple flex flex-col gap-y-1">
     <div class="grid grid-cols-2 gap-x-4">
       <div>
         <label for="first_name">First Name</label>
+
         <input id="first_name" type="text" placeholder="First Name" />
       </div>
+
       <div>
         <label for="last_name">Last Name</label>
+
         <input id="last_name" type="text" placeholder="Last Name" />
       </div>
     </div>
+
     <div>
       <label for="options">Select</label>
+
       <select id="options">
         <option value="1">Option 1</option>
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
       </select>
     </div>
+
     <div>
       <label for="options">Input Group</label>
+
       <div class="ui-input-group">
         <input id="first_name" type="text" placeholder="First Name" />
+
         <input id="middle_name" type="text" placeholder="Middle Name" />
+
         <input id="last_name" type="text" placeholder="Last Name" />
       </div>
     </div>
   </div>
+
   <div class="--bottom">
     <div>
       <a class="ui-button --minimal --motion-backward">
         <img src="/icons/heroicons/arrow-left.svg" />
+
         Back
       </a>
     </div>
+
     <div class="flex gap-x-2">
-      <a class="ui-button --motion-forward" >
+      <a class="ui-button --motion-forward">
         Save Draft
+
         <img src="/icons/heroicons/paper-airplane-outline.svg" />
       </a>
+
       <button type="submit" class="ui-button --solid --motion-forward" form="form1">
         Go
       </button>
