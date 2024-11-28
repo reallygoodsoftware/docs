@@ -76,8 +76,28 @@
         {
             "group": "Info",
             "pages": [
-                "basestyles/intro",
-                "basestyles/design-goals"
+                "basestyles/index",
+                "basestyles/design-goals",
+                "basestyles/customization"
+            ]
+        },
+        {
+            "group": "Examples",
+            "pages": [
+                "basestyles/examples"
+            ]
+        },
+        {
+            "group": "Elements"
+            "pages": [
+                "/basestyles/box",
+                "/basestyles/titlepair",
+                "/basestyles/buttons",
+                "/basestyles/modal",
+                "/basestyles/toasts",
+                "/basestyles/tooltips",
+                "/basestyles/forms",
+                "/basestyles/floating-labels"
             ]
         }
     ],
