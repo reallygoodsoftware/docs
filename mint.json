@@ -90,13 +90,13 @@
         {
             "group": "Elements",
             "pages": [
+                "/basestyles/buttons",
+                "/basestyles/forms",
                 "/basestyles/box",
                 "/basestyles/titlepair",
-                "/basestyles/buttons",
                 "/basestyles/modal",
                 "/basestyles/toasts",
                 "/basestyles/tooltips",
-                "/basestyles/forms",
                 "/basestyles/floating-labels"
             ]
         }
