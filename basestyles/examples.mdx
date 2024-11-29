@@ -5,44 +5,38 @@ title: "Examples"
 
 ## .ui-button
 
-<div class="ui-box ui-sandbox my-6">
+<div class="ui-box ui-sandbox">
   <div class="flex gap-x-2">
     <button class="ui-button">
       Simple Button
     </button>
-
     <button class="ui-button --solid">
       Solid Button
     </button>
-
     <button class="ui-button --minimal">
       Minimal Button
     </button>
-
     <span class="ui-link ml-2">
       Just a link
     </span>
   </div>
 </div>
 
-<div class="ui-box ui-sandbox my-6">
+</br/>
+
+<div class="ui-box ui-sandbox">
   <div class="flex gap-x-2">
     <button class="ui-button --motion-forward">
       With some motion
-
       <img class="no-zoom" src="/icons/heroicons/arrow-right.svg" />
     </button>
-
     <button class="ui-button --rounded">
       <img src="/icons/heroicons/envelope-outline.svg" />
-
       rounded
     </button>
-
     <button class="ui-button --minimal">
       <img src="/icons/heroicons/envelope-outline.svg" />
     </button>
-
     <button class="ui-button --rounded --minimal">
       <img src="/icons/heroicons/ellipsis-horizontal.svg" />
     </button>
@@ -51,19 +45,17 @@ title: "Examples"
 
 ## .ui-toggle
 
-<div class="ui-box ui-sandbox not-prose my-6 ui-styled-text-unset">
+<div class="ui-box ui-sandbox not-prose ui-styled-text-unset">
   <div class="flex w-full justify-between">
     <div>
       <div class="ui-titlepair">
         <h3 class="--title">Toggle</h3>
-        <p class="--description">Use the .ui-toggle class. See markup for details. </p>
+        <p class="--description">Use the .ui-toggle class. See markup for details.</p>
       </div>
     </div>
-
     <div class="flex items-center">
       <label class="ui-toggle">
         <input type="checkbox" />
-
         <span class="--slider" />
       </label>
     </div>
@@ -72,40 +64,23 @@ title: "Examples"
 
 ## .ui-form
 
-<form id="form1" class="ui-box ui-sandbox my-6 ui-form" action="/docs">
+<form id="form1" class="ui-box ui-sandbox ui-form" action="/docs">
   <div class="ui-tuple flex flex-col gap-y-1">
     <div class="grid grid-cols-2 gap-x-4">
       <div>
         <label for="first_name">First Name</label>
-
         <input id="first_name" type="text" placeholder="First Name" />
       </div>
-
       <div>
         <label for="last_name">Last Name</label>
-
         <input id="last_name" type="text" placeholder="Last Name" />
       </div>
     </div>
-
-    <div>
-      <label for="options">Select</label>
-
-      <select id="options">
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-      </select>
-    </div>
-
     <div>
       <label for="options">Input Group</label>
-
       <div class="ui-input-group">
         <input id="first_name" type="text" placeholder="First Name" />
-
         <input id="middle_name" type="text" placeholder="Middle Name" />
-
         <input id="last_name" type="text" placeholder="Last Name" />
       </div>
     </div>
@@ -115,18 +90,14 @@ title: "Examples"
     <div>
       <a class="ui-button --minimal --motion-backward">
         <img src="/icons/heroicons/arrow-left.svg" />
-
         Back
       </a>
     </div>
-
     <div class="flex gap-x-2">
       <a class="ui-button --motion-forward">
         Save Draft
-
         <img src="/icons/heroicons/paper-airplane-outline.svg" />
       </a>
-
       <button type="submit" class="ui-button --solid --motion-forward" form="form1">
         Go
       </button>
