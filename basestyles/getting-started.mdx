@@ -1,30 +1,37 @@
+---
+title: "Getting Started"
+---
 
-# Getting Started
+<Steps>
+  <Step title="Add Base Styles to your project" titleSize="h2" />
 
-To use Base Styles you should add 2 files into your cobebase: Firstly, the core `base-styles.css` file, which is universal and should not be changed - and secondly, a `base-styles-custom.css` file, which is where you'll put all of your customizations and overrides.
+  <Step title="Set Your Defaults" titleSize="h2">
+    ```css base-styles-custom.css
+      :root {
+        --ui-font-family-headers: 'Inter', sans-serif;
+        --ui-font-family: 'Inter', sans-serif;
+        --ui-color-primary: #0070f3;
+        --ui-shared-border-radius: 6px;
+        --ui-shared-border-width: 2px;
+      }
+    ```
+  </Step>
 
-```html
-<link href="https://cdn.base-styles.com/base-styles/0.0.1.css<%= cache_buster %>" rel="stylesheet">
-<link href="/stylesheets/base-styles-overrides.css<%= cache_buster %>" rel="stylesheet">
-```
+  <Step title="3. Use the classes to compose your UI" titleSize="h2">
+    ```html
+      <button class="ui-button"> My Button </button>
+    ```
+  </Step>
 
-## Customization
+  <Step title="4.(Optional) Add your own variants" titleSize="h2">
+    If we don't have a variant you need, just add your own. See [customization](./customization.md) for more.
 
-Base Styles uses CSS variables for customization. There are options to customize everything, but there are about 10 variables that really matter, which will form the visual foundations of your UI. The first thing you should do is to set these in `base-styles-custom.css`.
-
-### Core Variables
-
-```css
-/* /public/stylesheets/base-styles-custom.css */
-:root {
-  --ui-font-family-base: 'Inter', sans-serif;
-  --ui-font-family-headers: 'Plus Jakarta Sans', sans-serif;
-  --ui-shared-border-radius: 6px;
-  --ui-shared-border-width: 2px;
-  --ui-shared-box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
-  --ui-shared-padding-base: 1.25rem;
-  --ui-shared-padding-md: 0.75rem;
-  --ui-shared-link-color: #191919;
-  --ui-border-radius-buttons: var(--ui-shared-border-radius);
-}
-```
+    ```css base-styles-custom.css
+    .ui-button {
+      & .--embossed {
+        box-shadow: 0 0 0 2px var(--ui-color-primary);
+      }
+    }
+    ```
+  </Step>
+</Steps>
