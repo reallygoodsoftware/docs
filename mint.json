@@ -74,10 +74,10 @@
             ]
         },
         {
-            "group": "Info",
+            "group": "About",
             "pages": [
                 "basestyles/intro",
-                "basestyles/design-goals",
+                "basestyles/getting-started",
                 "basestyles/customization"
             ]
         },
