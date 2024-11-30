@@ -99,6 +99,12 @@
                 "/basestyles/tooltips",
                 "/basestyles/floating-labels"
             ]
+        }, 
+        {
+          "group": "About",
+          "pages": [
+              "betterselect/intro"
+          ]
         }
     ],
     "footerSocials": {
